@@ -2,6 +2,7 @@ var tor9052 = 'PROXY localhost:9052';
 
 var queued = [
 	'*.onion',
+	'derpibooru.org',
 	'*.derpibooru.org'
 ];
 
