@@ -8,7 +8,7 @@ function FindProxyForURL(url, host) {
 	
 	for(var i = queued.length-1; i != -1; i--) {
 		if(shExpMatch(host, queued[i]))
-			return 'PROXY localhost:9052';
+			return 'SOCKS5 localhost:9052';
 	}
 	
 	return 'DIRECT';
