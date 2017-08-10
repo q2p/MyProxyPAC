@@ -2,7 +2,7 @@ function FindProxyForURL(url, host) {
 	var queued = [
 		'*.onion',
 		
-		'derpibooru.org'
+		'derpibooru.org',
 		'*.derpibooru.org'
 	];
 	
