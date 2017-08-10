@@ -1,6 +1,8 @@
 function FindProxyForURL(url, host) {
 	var queued = [
 		'*.onion',
+		
+		'derpibooru.org'
 		'*.derpibooru.org'
 	];
 	
@@ -9,5 +11,5 @@ function FindProxyForURL(url, host) {
 			return 'PROXY localhost:9052';
 	}
 	
-	return "DIRECT";
+	return 'DIRECT';
 }
