@@ -34,7 +34,7 @@ _.metapix.net # Сервер с пикчами
 _.pixiv.org
 _.pixiv.net
 
-_.hentai-foundry.com
+.hentai-foundry.com
 
 _.pornreactor.cc
 _.thatpervert.com
