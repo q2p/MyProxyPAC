@@ -3,26 +3,33 @@
 *.onion # TOR Hidden Network
 
 # Derpibooru
-_.derpibooru.org
-_.derpicdn.net
+derpibooru.org
+derpicdn.net
 
 _.e621.net
 _.e926.net
 
-_.rule34.xxx
-_.gelbooru.com
-_.donmai.us
-_.ibsearch.xxx
+rule34.xxx
+img.rule34.xxx
+gelbooru.com
+assets.gelbooru.com
+danbooru.donmai.us
+ibsearch.xxx
+im1.ibsearch.xxx
 _.paheal.net
 
-_.metapix.net
 _.booru.org
-_.tbib.org
+tbib.org
 _.sankakucomplex.com
-_.uberbooru.com
+uberbooru.com
 
 _.furaffinity.net
-_.inkbunny.net
+*.facdn.net # Сервер с пикчами
+
+# InkBunny
+inkbunny.net
+www.inkbunny.net
+_.metapix.net # Сервер с пикчами
 
 _.pixiv.org
 _.pixiv.net
