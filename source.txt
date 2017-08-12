@@ -31,10 +31,11 @@ inkbunny.net
 www.inkbunny.net
 _.metapix.net # Сервер с пикчами
 
-_.pixiv.org
 _.pixiv.net
+_.pixiv.org
+_.pximg.net
 
-.hentai-foundry.com
+_.hentai-foundry.com
 
 _.pornreactor.cc
 _.thatpervert.com
@@ -42,34 +43,47 @@ _.luscious.net
 _.e-hentai.org
 
 _.pornhub.com
+phncdn.com
 
-_.warosu.org
+warosu.org
+i.warosu.org
+
 _.nhentai.net
-_.hentaihere.com
+
+hentaihere.com
 _.hentaicdn.com
+
 _.hitomi.la
-_.dip.jp
-_.nijiero-ch.com
+dip.jp
+nijiero-ch.com
 _.im9.eu
-_.hentai-curation.com
-_.buhidoh.net
-_.xn--r8jwklh769h2mc880dk1o431a.com
+hentai-curation.com
+buhidoh.net
+file.buhidoh.net
+xn--r8jwklh769h2mc880dk1o431a.com
+www.nijimoeerogazou.dreamhosters.com
 _.hentai-image.com
-_.okkisokuho.com
-_.foolz.fireden.net
-_.sinnergate.com
+okkisokuho.com
+foolz.fireden.net
+sinnergate.com
 _.epidems.net
 
-_.thedoujin.com
-_.hentai2read.com
+thedoujin.com
+img1.thedoujin.com
+hentai2read.com
 
-_.yuki.la
+yuki.la
+ii.yuki.la
 _.archive.org
 
-_.rutracker.org
+# Рутрекер
+rutracker.org
+static.t-ru.org
+rutrk.org
+
 _.pornolab.net
 
-_.incestangel3d.com
-_.drawincest.com
+incestangel3d.com
+drawincest.com
 
 > DIRECT
