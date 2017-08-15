@@ -1,4 +1,5 @@
 @echo off
-git commit -am "Автоматический коммит PAC"
+chcp 65001
+git commit -am "РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РєРѕРјРјРёС‚ PAC"
 git push
 pause
