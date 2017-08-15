@@ -33,7 +33,7 @@ _.metapix.net # Сервер с пикчами
 
 _.pixiv.net
 _.pixiv.org
-_.pximg.net
+_.pximg.net # Сервер с пикчами
 
 _.hentai-foundry.com
 
