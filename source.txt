@@ -75,6 +75,7 @@ hentai2read.com
 yuki.la
 ii.yuki.la
 _.archive.org
+_.archive.is
 
 # Рутрекер
 rutracker.org
