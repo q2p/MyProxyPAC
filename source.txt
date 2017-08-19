@@ -77,6 +77,8 @@ ii.yuki.la
 _.archive.org
 _.archive.is
 
+_.8ch.net
+
 # Рутрекер
 rutracker.org
 static.t-ru.org
