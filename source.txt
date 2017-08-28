@@ -2,7 +2,7 @@
 
 *.onion # TOR Hidden Network
 
-linkedin.com
+_.linkedin.com
 
 # Derpibooru
 derpibooru.org
