@@ -4,6 +4,8 @@
 
 _.linkedin.com
 
+thepiratebay.org
+
 # Derpibooru
 derpibooru.org
 derpicdn.net
