@@ -130,7 +130,7 @@ public final class PacBuilder {
 	}
 	
 	private static boolean parseFile() {
-		StringBuilder sb = new StringBuilder("function FindProxyForURL(url, host){");
+		StringBuilder sb = new StringBuilder("function FindProxyForURL(url,host){");
 		
 		String response = null;
 		
