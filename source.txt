@@ -2,6 +2,9 @@
 
 *.onion # TOR Hidden Network
 
+# Proxy
+_.hide.me
+
 _.linkedin.com
 
 thepiratebay.org
