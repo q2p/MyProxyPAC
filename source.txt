@@ -8,6 +8,8 @@ _.hide.me
 _.linkedin.com
 
 thepiratebay.org
+tfile.cc
+tfile.co
 
 # Derpibooru
 derpibooru.org
