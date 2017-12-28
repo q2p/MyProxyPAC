@@ -40,10 +40,6 @@ inkbunny.net
 www.inkbunny.net
 _.metapix.net # Сервер с пикчами
 
-_.pixiv.net
-_.pixiv.org
-_.pximg.net # Сервер с пикчами
-
 _.hentai-foundry.com
 
 _.pornreactor.cc
@@ -119,5 +115,11 @@ young-otaku.ru
 _.dailymotion.com
 
 _.furrynetwork.com
+
+> SOCKS5 localhost:9049 # Default Psiphon proxy
+
+_.pixiv.net
+_.pixiv.org
+_.pximg.net # Сервер с пикчами
 
 > DIRECT
