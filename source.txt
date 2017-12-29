@@ -26,6 +26,7 @@ danbooru.donmai.us
 ibsearch.xxx
 im1.ibsearch.xxx
 _.paheal.net
+_.megabooru.com
 
 _.booru.org
 tbib.org
