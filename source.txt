@@ -56,7 +56,7 @@ i.warosu.org
 
 _.nhentai.net
 
-hentaihere.com
+_.hentaihere.com
 _.hentaicdn.com
 
 _.hitomi.la
@@ -74,9 +74,6 @@ foolz.fireden.net
 sinnergate.com
 _.epidems.net
 _.tumblr.com
-
-www.hentaihere.com
-hentaicdn.com
 
 hentaihaven.org
 
