@@ -56,6 +56,7 @@ warosu.org
 i.warosu.org
 
 _.nhentai.net
+_.f-list.net
 
 _.hentaihere.com
 _.hentaicdn.com
