@@ -1,0 +1,23 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es2015",
+		"module": "system",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"outFile": "./script.js",
+		"sourceMap": false
+	},
+	"files": [
+		"./ts/text-encoding.d.ts",
+		"./ts/hex.ts",
+		"./ts/blake2s.ts",
+		"./ts/chacha20.ts",
+		"./ts/loadblocks.ts",
+		"./ts/main.ts",
+		"./ts/regions.ts",
+		"./ts/map.ts",
+		"./ts/cityHub.ts"
+	]
+}

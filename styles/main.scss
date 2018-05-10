@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: '_font_noto';
+	src: url('noto_regular.ttf') format('truetype');
+}
+$mFont: _font_noto, sans-serif;
+
+$textColor: #fff;
+$bodyBG: #000;
+$fontSize: 16px;
+
+$bodyWidth: 384px;
+
+$selectionColor: #a0f;
+
+$tabColor: #222;
+$tabInactiveColor: #111;
+$tabsHeight: 32px;
+$tabsMargin: 4px;
+$tabsTextPadding: 8px;
+
+$itemHeight: 24px;
+$itemTextPadding: 8px;
+$itemProfileSelection: 80px;
+
+* {
+	color: $textColor;
+	padding: 0;
+	margin: 0;
+	border: none;
+	font: {
+		family: $mFont;
+		weight: normal;
+		size: $fontSize;
+	}
+	outline: none;
+}
+
+
+html {
+	background-color: $bodyBG;
+	min-width: $bodyWidth;
+	user-select: none;
+}
+::selection {
+	background-color: $selectionColor;
+}
+
+#tabs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: $tabsHeight;
+
+	.tab {
+		width: calc((100% - $tabsMargin * 3) / 4);
+		height: $tabsHeight;
+		box-sizing: border-box;
+		text-align: center;
+		padding-top: $tabsTextPadding;
+
+		&.active {
+			background-color: $tabColor;
+			cursor: default;
+		}
+
+		&.inactive {
+			background-color: $tabInactiveColor;
+			cursor: pointer;
+			&:hover {
+				background-color: $selectionColor;
+			}
+		}
+	}
+	.tab_split {
+		width: 4px;
+	}
+	&::-webkit-scrollbar { 
+		height: 4px;
+	}
+}
+
+#content {
+	position: relative;
+	.list_span {
+		height: $itemHeight;
+		position: relative;
+		background-color: $tabColor;
+	}
+	.item_sort {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: $itemHeight;
+		background-color: #00a;
+	}
+	.item_title_wrap {
+		position: absolute;
+		height: $itemHeight;
+		left: $itemHeight;
+		right: $itemProfileSelection + $itemHeight;
+	}
+	.item_title {
+		position: absolute;
+		width: 100%;
+		height: $itemHeight;
+		background-color: $tabColor;
+		text-overflow: ellipsis;
+		padding-left: $itemTextPadding;
+		padding-right: $itemTextPadding;
+		box-sizing: border-box;
+	}
+	.item_profile {
+		cursor: pointer;
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: $itemHeight;
+		width: $itemProfileSelection;
+		padding-top: 3px;
+		padding-left: $itemTextPadding;
+		padding-right: $itemTextPadding;
+		text-overflow: ellipsis;
+		background-color: $tabColor;
+		&:hover {
+			background-color: $selectionColor;
+		}
+	}
+}
+
+@mixin stretchAbsolute($padding) {
+	position: absolute;
+
+	top: $padding;
+	bottom: $padding;
+	left: $padding;
+	right: $padding;
+}
