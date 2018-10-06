@@ -1,0 +1,12 @@
+[
+	{
+		"id": "en",
+		"nativeName": "English",
+		"englishName": "English"
+	},
+	{
+		"id": "ru",
+		"nativeName": "Русский язык",
+		"englishName": "Russian"
+	}
+]

@@ -1,0 +1,23 @@
+{
+	"title": "EnfCon",
+	
+	"mainBtnProfiles": "Exit nodes",
+	"mainBtnSwitch": "Switch rules",
+	"mainBtnModes": "Modes of operationing",
+	"mainBtnImport": "Import rules",
+	"mainBtnExport": "Export rules",
+	"mainBtnExportPlaintext": "Export rules as text",
+	"mainBtnChromeSync": "Chrome cloud synchronisation",
+	"mainBtnChangeLanguagueNative": "",
+	"mainBtnGuide": "Tutorial",
+	"mainBtnFeedback": "Feedback",
+
+	"chromeSyncTitle": "Chrome cloud synchronisation",
+	"chromeSyncEnableEncryption": "Use encryption",
+	"chromeSyncEncryptionKeyPlaceholder": "Type encryption password here...",
+	"chromeSyncEnableAutoUpload": "Automatic cloud sync",
+
+	"chromeSyncPullChanges": "Download rules from cloud",
+	"chromeSyncPushChanges": "Upload rules to cloud",
+	"chromeSyncWipeCloud": "Wipe cloud storage"
+}

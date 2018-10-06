@@ -1,0 +1,23 @@
+{
+	"title": "EnfCon",
+	
+	"mainBtnProfiles": "Выходные узлы",
+	"mainBtnSwitch": "Правила переключения",
+	"mainBtnModes": "Режим работы",
+	"mainBtnImport": "Импортировать правила",
+	"mainBtnExport": "Экспортировать правила",
+	"mainBtnExportPlaintext": "Экспортировать правила в текстовый файл",
+	"mainBtnChromeSync": "Облачная синхронизация Chrome",
+	"mainBtnChangeLanguagueNative": "Сменить язык",
+	"mainBtnGuide": "Руководство",
+	"mainBtnFeedback": "Обратная связь",
+
+	"chromeSyncTitle": "Облачная синхронизация Chrome",
+	"chromeSyncEnableEncryption": "Использовать шифрование",
+	"chromeSyncEncryptionKeyPlaceholder": "Введите сюда пароль для шифрования...",
+	"chromeSyncEnableAutoUpload": "Автоматическая синхронизация",
+
+	"chromeSyncPullChanges": "Скачать правила из облака",
+	"chromeSyncPushChanges": "Загрузить правила в облако",
+	"chromeSyncWipeCloud": "Очистить облачное хранилище"
+}
