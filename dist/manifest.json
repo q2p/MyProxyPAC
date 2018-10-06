@@ -3,9 +3,8 @@
 	"description": "Manages proxy settings and security of requests.",
 	"version": "1.0",
 	"manifest_version":	2,
-	"permissions": [ "storage", "*://*/", "webRequest", "webRequestBlocking" ],
+	"permissions": [ "storage", "*://*/", "webRequest", "webRequestBlocking", "unlimitedStorage" ],
 	"icons": { "128":	"icon.png" },
-	"options_page": "options.html",
 	"minimum_chrome_version": "17",
 	"browser_action": {
 		"default_popup": "popup.html"
