@@ -1,28 +1,45 @@
 @charset "UTF-8";
 
 @font-face {
-	font-family: '_font_noto';
+	font-family: '_font_noto_regular';
 	src: url('noto_regular.ttf') format('truetype');
 }
-$mFont: _font_noto, sans-serif;
+@font-face {
+	font-family: '_font_noto_mono_regular';
+	src: url('noto_mono_regular.ttf') format('truetype');
+}
 
-$textColor: #fff;
-$bodyBG: #000;
+$regularFont: _font_noto_regular, sans-serif, Arial;
+$monoFont: _font_noto_mono_regular, $regularFont;
+
 $fontSize: 16px;
 
 $bodyWidth: 384px;
 
-$selectionColor: #a0f;
+$activeColor: #a0f;
 
-$tabColor: #222;
-$tabInactiveColor: #111;
+$textColor: #efefff;
+$outlineColor: #0f0f13;
+$backgroundColor: #1f1f23;
+$lighterBackground: #3f3f43;
+$checkboxBackground: #4f4f53;
+$selectionColor: #5f5f63;
+$hintColor: #8f8f93;
+$dangerColor: #f14a48; // TODO: выбрать
+$dangerColor: #ef4f4f; // TODO: выбрать
+
 $tabsHeight: 32px;
 $tabsMargin: 4px;
-$tabsTextPadding: 8px;
+$tabsTextPadding: 6px;
 
 $itemHeight: 24px;
 $itemTextPadding: 8px;
-$itemProfileSelection: 80px;
+$itemProfileSelection: 128px;
+
+$scrollbarWidth: 8px;
+
+$titleHeight: 32px;
+$titlePadding: 5px;
 
 * {
 	color: $textColor;
@@ -30,7 +47,7 @@ $itemProfileSelection: 80px;
 	margin: 0;
 	border: none;
 	font: {
-		family: $mFont;
+		family: $regularFont;
 		weight: normal;
 		size: $fontSize;
 	}
@@ -39,103 +56,270 @@ $itemProfileSelection: 80px;
 
 
 html {
-	background-color: $bodyBG;
-	min-width: $bodyWidth;
+	background-color: $backgroundColor;
 	user-select: none;
+	width: $bodyWidth;
+	height: 400px;
+}
+body {
+	width: 100%;
+	height: 100%;
 }
 ::selection {
 	background-color: $selectionColor;
 }
 
-#tabs {
+$flagHeight: 60px;
+$flagWidth: 90px;
+$languagueNameLeftMargin: 10px;
+$languagueContainerWidth: 220px;
+$languagueContainerPadding: 20px;
+#languagues_prompt_view {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: overlay;
+	position: relative;
+	
+	&.tidy {
+		& #languagues_prompt {
+			top: 0px;
+		}
+		& #languagues_title_container {
+			display: none;
+		}
+	}
+}
+#languagues_prompt {
+	width: 100%;
+	padding-top: $languagueContainerPadding;
+	padding-bottom: $languagueContainerPadding;
+	position: absolute;
+	top: $titleHeight;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
 	flex-direction: row;
-	justify-content: space-between;
-	height: $tabsHeight;
+	box-sizing: border-box;
+	flex-wrap: wrap;
 
-	.tab {
-		width: calc((100% - $tabsMargin * 3) / 4);
-		height: $tabsHeight;
-		box-sizing: border-box;
-		text-align: center;
-		padding-top: $tabsTextPadding;
+	.languague_container {
+		padding: $languagueContainerPadding;
+		position: relative;
+		height: $flagHeight;
+		width: $languagueContainerWidth;
+		flex-grow: 0;
+    flex-basis: $languagueContainerWidth;
+		flex-shrink: 0;
+		
+		cursor: pointer;
 
-		&.active {
-			background-color: $tabColor;
-			cursor: default;
+		&:hover {
+			background-color: $selectionColor;
 		}
 
-		&.inactive {
-			background-color: $tabInactiveColor;
-			cursor: pointer;
-			&:hover {
-				background-color: $selectionColor;
-			}
+		.languague_flag {
+			height: $flagHeight;
+			width: $flagWidth;
+			border-radius: 0.5em;
+		}
+
+		.languague_names {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			min-height: 100%;
+			top: 0;
+    	bottom: 0;
+			left: $languagueContainerPadding + $flagWidth + $languagueNameLeftMargin;
 		}
 	}
-	.tab_split {
-		width: 4px;
+}
+
+.hint_color {
+	color: $hintColor;
+}
+.dangerous_hint_color {
+	color: $dangerColor;
+}
+
+.reg_title {
+	background-color: $lighterBackground;
+	padding-top: $titlePadding;
+	text-align: center;
+	height: $titleHeight;
+	box-sizing: border-box;
+}
+
+.return_btn {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.icon_btn {
+	cursor: pointer;
+	padding: 6px;
+	
+	&:hover {
+		background-color: $selectionColor;
 	}
-	&::-webkit-scrollbar { 
-		height: 4px;
+}
+
+.title_square {
+	display: block; 
+	width: $titleHeight;
+	height: $titleHeight;
+	box-sizing: border-box;
+}
+
+$checkboxCenterOffset: 7px;
+$checkboxMarkOffset: 2px;
+
+.checkbox_wrapper {
+	padding: $checkboxCenterOffset;
+}
+
+.checkbox_center {
+	background-color: $lighterBackground;
+	width: $titleHeight - 2 * $checkboxCenterOffset;
+	height: $titleHeight - 2 * $checkboxCenterOffset;
+	padding: $checkboxMarkOffset;
+	box-sizing: border-box;
+
+	&.checkbox_enabled {
+		background-color: $activeColor;
+
+		& .checkbox_image {
+			display: block;
+		}
+	}
+}
+
+.checkbox_image {
+	display: none;
+	width: $titleHeight - 2 * $checkboxCenterOffset - 2 * $checkboxMarkOffset;
+	height: $titleHeight - 2 * $checkboxCenterOffset - 2 * $checkboxMarkOffset;
+	box-sizing: border-box;
+}
+
+.checkbox_hover_parent:hover .checkbox_center {
+	background-color: $activeColor;
+}
+
+.padded_top_line_button {
+	height: $titleHeight;
+	padding-top: $titlePadding;
+	box-sizing: border-box;
+}
+
+.padded_left_line_button {
+	padding-left: 8px;
+}
+
+.line_container {
+	position: relative;
+	display: block;
+	text-decoration: none;
+	height: $titleHeight;
+	box-sizing: border-box;
+}
+
+.hint_icon {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: $titleHeight;
+}
+
+.post_hint_container {
+	display: block;
+	position: absolute;
+	left: $titleHeight;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.stick_to_left {
+	position: absolute;
+	left: 0;
+	width: $titleHeight;
+	top: 0;
+	bottom: 0;
+}
+
+.next_to_left {
+	position: absolute;
+	left: $titleHeight;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.line_hover_glow {
+	cursor: pointer;
+	&:hover {
+		background-color: $selectionColor;
 	}
 }
 
 #content {
-	position: relative;
-	.list_span {
-		height: $itemHeight;
-		position: relative;
-		background-color: $tabColor;
-	}
-	.item_sort {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		width: $itemHeight;
-		background-color: #00a;
-	}
-	.item_title_wrap {
-		position: absolute;
-		height: $itemHeight;
-		left: $itemHeight;
-		right: $itemProfileSelection + $itemHeight;
-	}
-	.item_title {
-		position: absolute;
+	#editable_content {
+		font-family: $monoFont;
+		height: 512px;
+		display: block;
+		padding-top: $itemTextPadding;
+		padding-bottom: $itemTextPadding;
+		padding-left: $itemTextPadding;
+		padding-right: $itemTextPadding;
 		width: 100%;
-		height: $itemHeight;
-		background-color: $tabColor;
-		text-overflow: ellipsis;
-		padding-left: $itemTextPadding;
-		padding-right: $itemTextPadding;
+		resize: none;
+		background-color: $backgroundColor;
 		box-sizing: border-box;
+		white-space: pre;
+		overflow: auto;
 	}
-	.item_profile {
-		cursor: pointer;
-		box-sizing: border-box;
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: $itemHeight;
-		width: $itemProfileSelection;
-		padding-top: 3px;
-		padding-left: $itemTextPadding;
-		padding-right: $itemTextPadding;
-		text-overflow: ellipsis;
-		background-color: $tabColor;
-		&:hover {
-			background-color: $selectionColor;
+}
+
+.line_input {
+	width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+	background-color: #222;
+
+	&:disabled {
+		background-color: #111;
+		color: #888;
+		user-select: none;
+		&::selection {
+			background-color: transparent;
 		}
 	}
 }
 
-@mixin stretchAbsolute($padding) {
-	position: absolute;
-
-	top: $padding;
-	bottom: $padding;
-	left: $padding;
-	right: $padding;
+::-webkit-input-placeholder {
+	color: #888;
 }
+
+::-webkit-scrollbar {
+	background-color: transparent;
+	width: $scrollbarWidth;
+	height: $scrollbarWidth;
+}
+::-webkit-scrollbar-button { display: none; }
+::-webkit-scrollbar-track { display: none; }
+::-webkit-scrollbar-track-piece  { display: none;
+	background-color: transparent; }
+::-webkit-scrollbar-thumb {
+	background-color: rgba(127,127,127,0.5);
+}
+::-webkit-scrollbar-corner { display: none; }
+::-webkit-resizer { display: none; }
