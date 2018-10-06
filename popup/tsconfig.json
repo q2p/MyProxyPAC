@@ -1,0 +1,31 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"allowJs": true,
+		"target": "es2017",
+		"module": "system",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"outFile": "../dist/popup.js",
+		"sourceMap": false
+	},
+	"files": [
+		"../ts/hex.ts",
+		"../ts/base64.ts",
+		"../ts/blake2s.ts",
+		"../ts/chacha20.ts",
+		"../ts/pako.min.js",
+		"../ts/messagingTypes.ts",
+		"../ts/chromeApi.ts",
+		"./updatableValue.ts",
+		"./transport.ts",
+		"./state.ts",
+		"./locales.ts",
+		"./switch.ts",
+		"./mainView.ts",
+		"./chromeSyncView.ts",
+		"./periodicStateSaver.ts",
+		"./initializer.ts"
+	]
+}

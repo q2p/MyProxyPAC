@@ -1,0 +1,19 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es2017",
+		"module": "system",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"outFile": "../dist/background.js",
+		"sourceMap": false
+	},
+	"files": [
+		"../ts/chromeApi.ts",
+		"../ts/messagingTypes.ts",
+		"./updatableValue.ts",
+		"./chromeSync.ts",
+		"./background.ts"
+	]
+}
