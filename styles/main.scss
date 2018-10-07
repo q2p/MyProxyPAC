@@ -36,6 +36,8 @@ $scrollbarWidth: 8px;
 $titleHeight: 32px;
 $titlePadding: 4px;
 
+$dragButtonDiameter: 6px;
+
 * {
 	color: $textColor;
 	padding: 0;
@@ -133,6 +135,16 @@ $languagueContainerPadding: 20px;
 			left: $languagueContainerPadding + $flagWidth + $languagueNameLeftMargin;
 		}
 	}
+}
+
+.scrollable_container {
+	position: absolute;
+	top: $titleHeight;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .hint_color {
@@ -236,6 +248,16 @@ $checkboxMarkOffset: 2px;
 	bottom: 0;
 }
 
+.drag_button_dot {
+	position: absolute;
+	top:    ($titleHeight - $dragButtonDiameter) / 2;
+	bottom: ($titleHeight - $dragButtonDiameter) / 2;
+	left:   ($titleHeight - $dragButtonDiameter) / 2;
+	right:  ($titleHeight - $dragButtonDiameter) / 2;
+	border-radius: 100%;
+	background-color: #efefff;
+}
+
 .next_to_left {
 	position: absolute;
 	left: $titleHeight;
@@ -248,24 +270,6 @@ $checkboxMarkOffset: 2px;
 	cursor: pointer;
 	&:hover {
 		background-color: $selectionColor;
-	}
-}
-
-#content {
-	#editable_content {
-		font-family: $monoFont;
-		height: 512px;
-		display: block;
-		padding-top: $itemTextPadding;
-		padding-bottom: $itemTextPadding;
-		padding-left: $itemTextPadding;
-		padding-right: $itemTextPadding;
-		width: 100%;
-		resize: none;
-		background-color: $backgroundColor;
-		box-sizing: border-box;
-		white-space: pre;
-		overflow: auto;
 	}
 }
 

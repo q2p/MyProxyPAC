@@ -5,6 +5,7 @@ enum TransportMessageType {
 	ChromeSyncDisableAutoUpload = 3,
 	PopupInit = 4,
 	StateUpdate = 5,
+	SwitchGetRules = 6
 };
 
 enum PreviousPage {
@@ -28,4 +29,14 @@ interface TransportStateUpdateMessage extends TransportMessageBase {
 	readonly type:TransportMessageType.StateUpdate;
 
 	chromeSyncEncryptionPassword:string;
+}
+
+interface TransportSwitchElement {
+	tabs:number;
+	icon:string;
+	note:string;
+}
+
+interface TransportSwitchRule extends TransportSwitchElement {
+	address:string;
 }

@@ -90,7 +90,8 @@ class MainView {
 
 		}),
 		new MainButtonRegular('mainBtnSwitch', 'S', ()=>{
-
+			MainView.hide();
+			Switch.show();
 		}),
 		new MainButtonRegular('mainBtnProfiles', 'P', ()=>{
 

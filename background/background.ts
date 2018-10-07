@@ -92,6 +92,10 @@ chrome.runtime.onMessage.addListener(function(message:TransportMessageBase, send
 			ChromeSync.autoUploadEnabled.update(false);
 			sendResponse({});
 			return;
+		case TransportMessageType.SwitchGetRules:
+			sendResponse([
+			]);
+			return;
 		/*case 'setState':
 			if(!chrome.extension.inIncognitoContext)
 				working = request.working;
