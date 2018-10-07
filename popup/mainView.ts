@@ -14,7 +14,7 @@ abstract class MainButton {
 		hintIcon.className = 'hint_icon';
 		hintIcon.innerText = this.hintIcon;
 		let postHint = document.createElement('div');
-		postHint.classList.add('post_hint_container', 'padded_top_line_button', 'padded_left_line_button');
+		postHint.classList.add('next_to_left', 'padded_top_line_button', 'padded_left_line_button');
 		btn.appendChild(hintIcon);
 		btn.appendChild(postHint);
 

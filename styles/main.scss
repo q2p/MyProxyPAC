@@ -28,13 +28,8 @@ $hintColor: #8f8f93;
 $dangerColor: #f14a48; // TODO: выбрать
 $dangerColor: #ef4f4f; // TODO: выбрать
 
-$tabsHeight: 32px;
 $tabsMargin: 4px;
 $tabsTextPadding: 6px;
-
-$itemHeight: 24px;
-$itemTextPadding: 8px;
-$itemProfileSelection: 128px;
 
 $scrollbarWidth: 8px;
 
@@ -91,7 +86,6 @@ $languagueContainerPadding: 20px;
 	}
 }
 #languagues_prompt {
-	width: 100%;
 	padding-top: $languagueContainerPadding;
 	padding-bottom: $languagueContainerPadding;
 	position: absolute;
@@ -156,15 +150,10 @@ $languagueContainerPadding: 20px;
 	box-sizing: border-box;
 }
 
-.return_btn {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-}
-
 .icon_btn {
 	cursor: pointer;
 	padding: 6px;
+	box-sizing: border-box;
 	
 	&:hover {
 		background-color: $selectionColor;
@@ -237,15 +226,6 @@ $checkboxMarkOffset: 2px;
 	top: 0;
 	bottom: 0;
 	width: $titleHeight;
-}
-
-.post_hint_container {
-	display: block;
-	position: absolute;
-	left: $titleHeight;
-	top: 0;
-	bottom: 0;
-	right: 0;
 }
 
 .stick_to_left {
