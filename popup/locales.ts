@@ -147,6 +147,8 @@ interface LanguagueValues {
 	readonly mainBtnChangeLanguagueNative:string;
 	readonly mainBtnGuide:string;
 	readonly mainBtnFeedback:string;
+
+	readonly switchTitle:string;
 	
 	readonly chromeSyncTitle:string;
 	readonly chromeSyncEnableEncryption:string;

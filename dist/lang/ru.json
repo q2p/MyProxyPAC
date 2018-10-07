@@ -2,7 +2,7 @@
 	"title": "EnfCon",
 	
 	"mainBtnProfiles": "Выходные узлы",
-	"mainBtnSwitch": "Правила переключения",
+	"mainBtnSwitch": "Правила сайтов",
 	"mainBtnModes": "Режим работы",
 	"mainBtnImport": "Импортировать правила",
 	"mainBtnExport": "Экспортировать правила",
@@ -11,6 +11,8 @@
 	"mainBtnChangeLanguagueNative": "Сменить язык",
 	"mainBtnGuide": "Руководство",
 	"mainBtnFeedback": "Обратная связь",
+
+	"switchTitle": "Правила сайтов",
 
 	"chromeSyncTitle": "Облачная синхронизация Chrome",
 	"chromeSyncEnableEncryption": "Использовать шифрование",

@@ -12,6 +12,8 @@
 	"mainBtnGuide": "Tutorial",
 	"mainBtnFeedback": "Feedback",
 
+	"switchTitle": "Switch rules",
+
 	"chromeSyncTitle": "Chrome cloud synchronisation",
 	"chromeSyncEnableEncryption": "Use encryption",
 	"chromeSyncEncryptionKeyPlaceholder": "Type encryption password here...",
