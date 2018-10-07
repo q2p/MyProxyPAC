@@ -84,7 +84,7 @@ class ChromeSyncView {
 
 	static passwordChanged():void {
 		ChromeSyncView.encryptionPassword.value = ChromeSyncView.inputEncryptionPassword.value;
-		chrome.runtime.sendMessage(<TransportStateUpdateMessage> { type: TransportMessageType.StateUpdate, chromeSyncEncryptionPassword: ChromeSyncView.encryptionPassword.value },)
+		chrome.runtime.sendMessage(<TransportStateUpdateMessage> { type: TransportMessageType.StateUpdate, chromeSyncEncryptionPassword: ChromeSyncView.encryptionPassword.value })
 	}
 
 	static flipEncryptionState():void {
