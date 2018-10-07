@@ -118,6 +118,7 @@ class State {
 		}
 
 		this.stateLoaded(locale, lastWindow, windowScroll, articleId, switchText, profilesText, modesText, modesStates);
+		return true;
 	}
 
 	static stateLoaded(locale:string, lastWindow:WindowEnum, windowScroll:number, articleId:string, switchText:string, profilesText:string, modesText:string, modesStates:any[]):void {
