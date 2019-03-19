@@ -14,7 +14,8 @@ $monoFont: _font_noto_mono_regular, $regularFont;
 
 $fontSize: 16px;
 
-$bodyWidth: 384px;
+$bodyWidth: 6*64px;
+$bodyHeight: 7*64px;
 
 $activeColor: #a0f;
 
@@ -33,7 +34,7 @@ $tabsTextPadding: 6px;
 
 $scrollbarWidth: 8px;
 
-$titleHeight: 32px;
+$titleHeight: 28px;
 $titlePadding: 4px;
 
 $dragButtonDiameter: 6px;
@@ -49,18 +50,19 @@ $dragButtonDiameter: 6px;
 		size: $fontSize;
 	}
 	outline: none;
+	-webkit-user-drag: none;
 }
-
 
 html {
 	background-color: $backgroundColor;
 	user-select: none;
 	width: $bodyWidth;
-	height: 400px;
+	height: $bodyHeight;
 }
 body {
 	width: 100%;
 	height: 100%;
+	position: relative;
 }
 ::selection {
 	background-color: $selectionColor;
@@ -111,12 +113,6 @@ $languagueContainerPadding: 20px;
 		flex-grow: 0;
     flex-basis: $languagueContainerWidth;
 		flex-shrink: 0;
-		
-		cursor: pointer;
-
-		&:hover {
-			background-color: $selectionColor;
-		}
 
 		.languague_flag {
 			height: $flagHeight;
@@ -135,6 +131,14 @@ $languagueContainerPadding: 20px;
 			left: $languagueContainerPadding + $flagWidth + $languagueNameLeftMargin;
 		}
 	}
+}
+
+.font_mono {
+	font-family: $monoFont;
+}
+
+.font_bold {
+	font-weight: bold;
 }
 
 .scrollable_container {
@@ -179,7 +183,7 @@ $languagueContainerPadding: 20px;
 	box-sizing: border-box;
 }
 
-$checkboxCenterOffset: 7px;
+$checkboxCenterOffset: 8px;
 $checkboxMarkOffset: 2px;
 
 .checkbox_wrapper {
@@ -248,14 +252,21 @@ $checkboxMarkOffset: 2px;
 	bottom: 0;
 }
 
+.show_on_hover_hint_container {
+	background-color: transparent;
+
+	&:hover .show_on_hover_element {
+		background-color: $hintColor;
+	}
+}
+
 .drag_button_dot {
 	position: absolute;
 	top:    ($titleHeight - $dragButtonDiameter) / 2;
 	bottom: ($titleHeight - $dragButtonDiameter) / 2;
 	left:   ($titleHeight - $dragButtonDiameter) / 2;
 	right:  ($titleHeight - $dragButtonDiameter) / 2;
-	border-radius: 100%;
-	background-color: #efefff;
+	border-radius: $dragButtonDiameter / 2;
 }
 
 .next_to_left {
@@ -268,6 +279,12 @@ $checkboxMarkOffset: 2px;
 
 .line_hover_glow {
 	cursor: pointer;
+	&:hover {
+		background-color: $selectionColor;
+	}
+}
+
+.hover_glow {
 	&:hover {
 		background-color: $selectionColor;
 	}
