@@ -33,9 +33,7 @@ class Locales {
 		}).then((languagueValues:LanguagueValues) => {
 			Locales.localeDictionary = languagueValues;
 
-			// TODO: выдаёт [undefined]
-			// Locales.languaguesTitleDiv.innerText = languagueValues.mainBtnChangeLanguagueNative + (languagueValues.mainBtnChangeLanguagueNative === languagueValues.mainBtnChangeLanguagueTranslated ? '' : ' [' + languagueValues.mainBtnChangeLanguagueTranslated + ']');
-			Locales.languaguesTitleDiv.innerText = languagueValues.mainBtnChangeLanguagueNative + (languagueValues.mainBtnChangeLanguagueNative === 'Change languague' ? '' : ' (Change languague)');
+			Locales.languaguesTitleDiv.innerText = languagueValues.mainBtnChangeLanguagueNative === '' ? 'Change languague' : languagueValues.mainBtnChangeLanguagueNative + ' (Change languague)';
 
 			MainView.rename(languagueValues);
 
