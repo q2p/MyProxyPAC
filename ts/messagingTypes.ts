@@ -39,4 +39,5 @@ interface TransportSwitchElement {
 
 interface TransportSwitchRule extends TransportSwitchElement {
 	address:string;
+	profile:string;
 }

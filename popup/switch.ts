@@ -37,28 +37,47 @@ class SwitchNote extends SwitchElement {
 
 class SwitchRule extends SwitchElement {
 	address:string;
+	profile:string;
 	
-	constructor(tabs:number, icon:string, address:string, note:string) {
+	constructor(tabs:number, icon:string, address:string, note:string, profile:string) {
 		super(tabs, icon, note);
 		this.address = address;
 		
-		this.element.classList.add('line_container');
+		this.element.classList.add('line_container', 'hover_glow', 'show_on_hover_hint_container');
 		
 		let dragButton = document.createElement('div');
 		dragButton.classList.add('stick_to_left');
 
 		let dragButtonDot = document.createElement('div');
-		dragButtonDot.classList.add('drag_button_dot');
+		dragButtonDot.classList.add('drag_button_dot', 'show_on_hover_element');
 
 		dragButton.appendChild(dragButtonDot);
-
-		let noteElement = document.createElement('div');
-		noteElement.classList.add('next_to_left', 'editable_note_container', 'padded_top_line_button');
-
-		noteElement.innerText = address+' // '+note;
-
 		this.element.appendChild(dragButton);
-		this.element.appendChild(noteElement);
+
+		let fieldsContainer = document.createElement('div');
+		fieldsContainer.classList.add('next_to_left', 'editable_note_container', 'padded_top_line_button');
+
+		let webAddressView = document.createElement('span');
+		webAddressView.classList.add('font_mono');
+		webAddressView.innerText = address;
+		fieldsContainer.appendChild(webAddressView);
+
+		let redirectSymbol = document.createElement('span');
+		redirectSymbol.classList.add('font_mono', 'hint_color');
+		redirectSymbol.innerText = ' > ';
+		fieldsContainer.appendChild(redirectSymbol);
+
+		let profileView = document.createElement('span');
+		profileView.classList.add('font_mono');
+		profileView.innerText = profile;
+		fieldsContainer.appendChild(profileView);
+
+		let noteView = document.createElement('span');
+		noteView.classList.add('hint_color');
+		noteView.innerText = ' # ' + note;
+		fieldsContainer.appendChild(noteView);
+
+		this.element.appendChild(fieldsContainer);
 	}
 }
 
@@ -99,13 +118,13 @@ class Switch {
 
 	}
 
-	static receivedRules(rules:TransportSwitchRule[]) {
+	static receivedRules(rules:TransportSwitchRule[]):void {
 		for(let rule of rules) {
 			let item;
 			if(rule.address === undefined) // Note
 				item = new SwitchNote(rule.tabs, rule.icon, rule.note);
 			else // Rule
-				item = new SwitchRule(rule.tabs, rule.icon, rule.address, rule.note);
+				item = new SwitchRule(rule.tabs, rule.icon, rule.address, rule.note, rule.profile);
 
 			Switch.switchRules.push(item);
 
