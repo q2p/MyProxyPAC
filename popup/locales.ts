@@ -65,18 +65,18 @@ class Locales {
 			let languagueFlag = document.createElement('img');
 			let languagueNames = document.createElement('div');
 
-			languagueContainer.className = 'languague_container';
-			languagueFlag.className = 'languague_flag';
-			languagueNames.className = 'languague_names';
+			languagueContainer.classList.add('languague_container', 'line_hover_glow');
+			languagueFlag.classList.add('languague_flag');
+			languagueNames.classList.add('languague_names');
 
 			let languagueNativeName = document.createElement('div');
-			languagueNativeName.className = 'languague_name';
+			languagueNativeName.classList.add('languague_name');
 			languagueNativeName.innerText = locale.nativeName;
 			languagueNames.appendChild(languagueNativeName);
 
 			if(locale.nativeName !== locale.englishName) {
 				let languagueEnglishName = document.createElement('div');
-				languagueEnglishName.className = 'languague_name';
+				languagueEnglishName.classList.add('languague_name');
 				languagueEnglishName.innerText = locale.englishName;
 				languagueNames.appendChild(languagueEnglishName);
 			}
