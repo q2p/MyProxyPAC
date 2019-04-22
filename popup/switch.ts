@@ -15,18 +15,18 @@ class SwitchNote extends SwitchElement {
 	constructor(tabs:number, icon:string, note:string) {
 		super(tabs, icon, note);
 
-		this.element.classList.add('line_container');
+		this.element.classList.add('line_container', 'hover_glow', 'show_on_hover_hint_container');
 		
 		let dragButton = document.createElement('div');
 		dragButton.classList.add('stick_to_left');
 
 		let dragButtonDot = document.createElement('div');
-		dragButtonDot.classList.add('drag_button_dot');
+		dragButtonDot.classList.add('drag_button_dot', 'show_on_hover_element');
 		
 		dragButton.appendChild(dragButtonDot);
 
 		let noteElement = document.createElement('div');
-		noteElement.classList.add('next_to_left', 'editable_note_container', 'padded_top_line_button');
+		noteElement.classList.add('next_to_left', 'editable_note_container', 'padded_top_line_button', 'hint_color');
 
 		noteElement.innerText = note;
 
@@ -88,6 +88,18 @@ class Switch {
 	private static readonly switchRules:SwitchElement[] = [
 	];
 
+	private static readonly draggingSpace = 96;
+	private static readonly minScrollSpeedPerSecond = 32;
+	private static readonly maxScrollSpeedPerSecond = 1024;
+	private static readonly minLogScrollSpeedPerSecond = Math.log(Switch.minScrollSpeedPerSecond);
+	private static readonly maxLogScrollSpeedPerSecond = Math.log(Switch.maxScrollSpeedPerSecond);
+	private static readonly scale = (Switch.maxLogScrollSpeedPerSecond - Switch.minLogScrollSpeedPerSecond) / Switch.draggingSpace;
+	private static preCalculatedScrollSpeed = 0;
+	private static rulesViewportCursorY:number = null;
+	
+	private static rulesViewportScrollBuildUp = 0;
+	private static lastTimestamp:number = null;
+
 	static generateTopBar(topBar:HTMLElement):void {
 		let topBarReturn = document.createElement('img');
 		let topBarTitle = document.createElement('div');
@@ -114,8 +126,75 @@ class Switch {
 
 		Switch.switchWindow.style.display = 'block';
 
+		//Switch.rulesContainer.addEventListener('mousemove', Switch.mouseMoveHandler, false);
+		//Switch.rulesContainer.addEventListener('mouseenter', Switch.mouseMoveHandler, false);
+		Switch.rulesContainer.addEventListener('mouseleave', Switch.mouseLeaveHandler, false);
+
 		chrome.runtime.sendMessage({ type: TransportMessageType.SwitchGetRules }, Switch.receivedRules);
 
+		/*
+			<textarea id="editable_content" spellcheck="false" autocomplete="off" placeholder=""></textarea>
+			<div class="button"> Accept№№№ </div>
+			<div class="button"> Cancel№№№ </div> alexozerov72@mail.ru
+
+
+			
+		if(Switch.rulesViewportCursorY !== null) {
+			requestAnimationFrame(Switch.onNextFrame);
+			let delta = timestamp - Switch.lastTimestamp; // get the delta time since last frame
+			Switch.lastTimestamp = timestamp;
+			document.body.innerText = '' + delta;
+
+		}
+		*/
+	}
+
+	static onNextFrame(timestamp:number):void {
+		if(Switch.rulesViewportCursorY !== null) { // TODO: rvcy не нужна как глобальная переменная
+			requestAnimationFrame(Switch.onNextFrame);
+
+			let delta = Math.max(0.0001, (timestamp - Switch.lastTimestamp) / 1000);
+			Switch.lastTimestamp = timestamp;
+
+			Switch.rulesViewportScrollBuildUp += delta * Switch.preCalculatedScrollSpeed;
+			let dec = 0;
+			if(Switch.rulesViewportScrollBuildUp < 1) {
+				dec = Math.ceil(Switch.rulesViewportScrollBuildUp);
+			} else if(Switch.rulesViewportScrollBuildUp > 1) {
+				dec = Math.floor(Switch.rulesViewportScrollBuildUp);
+			}
+			Switch.rulesViewportScrollBuildUp -= dec;
+			Switch.rulesContainer.scrollTop += dec;
+		}
+	}
+
+	static mouseMoveHandler(event:MouseEvent):void {
+		Switch.rulesViewportCursorY = event.clientY - Switch.rulesContainer.getBoundingClientRect().top;
+		
+		let dirTop = Switch.draggingSpace - Switch.rulesViewportCursorY;
+		let dirBottom = Switch.rulesViewportCursorY - (Switch.rulesContainer.getBoundingClientRect().height - Switch.draggingSpace) + 1;
+
+		if(dirTop > 0) {
+			Switch.preCalculatedScrollSpeed = -Math.exp(Switch.minLogScrollSpeedPerSecond + dirTop * Switch.scale);
+			if(Switch.lastTimestamp === null) {
+				Switch.lastTimestamp = Date.now();
+				requestAnimationFrame(Switch.onNextFrame);
+			}
+		} else if(dirBottom > 0) {
+			Switch.preCalculatedScrollSpeed = Math.exp(Switch.minLogScrollSpeedPerSecond + dirBottom * Switch.scale);
+			if(Switch.lastTimestamp === null) {
+				Switch.lastTimestamp = Date.now();
+				requestAnimationFrame(Switch.onNextFrame);
+			}
+		} else {
+			Switch.rulesViewportCursorY = null;
+			Switch.lastTimestamp = null;
+		}
+	}
+
+	static mouseLeaveHandler(event:MouseEvent):void {
+		Switch.rulesViewportCursorY = null;
+		Switch.lastTimestamp = null;
 	}
 
 	static receivedRules(rules:TransportSwitchRule[]):void {
